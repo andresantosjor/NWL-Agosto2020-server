@@ -1,20 +1,12 @@
 import express from 'express';
+import cors from 'cors';
+import routes from './routes';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
-// GET: Buscar
-// POST: Criar
-// PUT: Atualizar
-// DELETE: Apagar
-
-// Corpo (request.body): Dados para a criação ou atualização do registro
-// Route Params (request.params): :id
-// Query Params (request.query): ?page=2
-
-app.get('/', (request, response) => {
-    response.json({ message: "Hello World!" })
-});
+app.use(routes);
 
 app.listen(3333);
